@@ -67,6 +67,34 @@ const getQueries = async (req, res) => {
   }
 };
 
+//get quries based on userid
+const getQueriesById = async (req, res) => {
+  try {
+    console.log("Fetching queries for user...");
+
+    // Ensure user is authenticated and get user ID from token (req.user is set by verifyToken middleware)
+    if (!req.user) {
+      return res.status(401).json({ message: "Unauthorized" });
+    }
+
+    const userId = req.user.id; // Extract userId from the request
+    console.log("User ID:", userId);
+
+    // Fetch queries where the user is the creator (adjust based on your schema)
+    const queries = await Query.find({ userId }); 
+
+    if (!queries.length) {
+      return res.status(404).json({ message: "No queries found for this user" });
+    }
+
+    res.json(queries);
+  } catch (err) {
+    console.error("Error fetching queries:", err);
+    res.status(500).json({ message: "Server error", error: err.message });
+  }
+};
+
+
 // PUT - Update query status and response
 const updateQueryStatus = async (req, res) => {
   const { id } = req.params; // Query ID from URL

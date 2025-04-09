@@ -550,22 +550,26 @@ const checkAuth = async (req, res) => {
 
 // Middleware to verify JWT token
 const verifyToken = (req, res, next) => {
+    console.log("🔍 Incoming Authorization Header:", req.headers.authorization);
+
     // Get token from the Authorization header
     const token = req.headers.authorization && req.headers.authorization.split(' ')[1]; // Get token after 'Bearer'
     
     if (!token) {
+        console.log("❌ No token provided");
         return res.status(403).json({ message: 'Access denied, token required' });
     }
 
     try {
         // Decode and verify the token
         const decodedToken = jwt.verify(token, process.env.JWT_SECRET_KEY); // Use your JWT secret key here
+        console.log("✅ Token Verified. Decoded Token:", decodedToken);
 
         // Attach the decoded user info to the request object for use in subsequent middleware or routes
         req.user = decodedToken;
         next(); // Proceed to the next middleware or route handler
     } catch (error) {
-        console.error('Error verifying token:', error);
+        console.error("❌ Error verifying token:", error);
         return res.status(401).json({ message: 'Invalid or expired token' });
     }
 };
@@ -573,30 +577,42 @@ const verifyToken = (req, res, next) => {
 // Function to get user details using the token data
 const getUserDetails = async (req, res) => {
     try {
-        // Extract user ID from the decoded token (which was attached to req.user in verifyToken middleware)
-        const userId = req.user.id;
+        console.log("🔍 Incoming request to /user/details");
 
-        // Fetch user details from the database using the userId
-        const user = await User.findById(userId).select('-password'); // Don't return the password
-
-        if (!user) {
-            return res.status(404).json({ message: 'User not found' });
+        // Extract user ID from the decoded token
+        if (!req.user) {
+            console.log("❌ No user found in request");
+            return res.status(401).json({ message: "Unauthorized" });
         }
 
-        // Return the user details (excluding sensitive data like password)
-        res.json({
+        const userId = req.user.id;
+        console.log("🆔 User ID from token:", userId);
+
+        // Fetch user details from DB
+        const user = await User.findById(userId).select("-password");
+
+        if (!user) {
+            console.log("❌ User not found in database");
+            return res.status(404).json({ message: "User not found" });
+        }
+
+        const userData = {
             id: user._id,
             email: user.email,
             role: user.role,
-            name: user.name,  // Assuming you have a 'name' field in your model
+            name: user.name,
             createdAt: user.createdAt,
             updatedAt: user.updatedAt,
-        });
+        };
+
+        console.log("✅ Sending user details:", userData);
+        res.json(userData);
     } catch (error) {
-        console.error(error);
-        res.status(500).json({ message: 'Server error' });
+        console.error("❌ Server error:", error);
+        res.status(500).json({ message: "Server error" });
     }
 };
+
 
 // Auth middleware to verify JWT token
 const authMiddleware = async (req, res, next) => {
