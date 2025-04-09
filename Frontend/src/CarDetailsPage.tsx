@@ -141,7 +141,7 @@
 //       try {
 //         setLoading(true);
 //         // Replace with your actual API endpoint to fetch car by ID
-//         const response = await fetch(`http://localhost:8080/api/car/get-car-by-id/${carId}`);
+//         const response = await fetch(`https://car-rental-r8on.onrender.com/api/car/get-car-by-id/${carId}`);
 //         console.log(response);
         
 //         const data = await response.json();
@@ -261,7 +261,7 @@ const CarDetailsPage = () => {
     const fetchCarDetails = async () => {
       try {
         setLoading(true);
-        const response = await fetch(`http://localhost:8080/api/car/get-car-by-id/${carId}`);
+        const response = await fetch(`https://car-rental-r8on.onrender.com/api/car/get-car-by-id/${carId}`);
         const data = await response.json();
         console.log("Car Details Response:", data); // Log the car details response
 
@@ -281,7 +281,7 @@ const CarDetailsPage = () => {
 
     const fetchCarImage = async (imageId) => {
       try {
-        const response = await axios.get(`http://localhost:8080/api/image/${imageId}`, { responseType: 'blob' });
+        const response = await axios.get(`https://car-rental-r8on.onrender.com/api/image/${imageId}`, { responseType: 'blob' });
         console.log("Image fetched successfully:", response); // Log the image response
         const imageUrl = URL.createObjectURL(response.data); // Convert blob to URL
         setCarImage(imageUrl); // Set the image URL in state

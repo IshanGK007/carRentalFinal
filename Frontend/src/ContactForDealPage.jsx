@@ -413,7 +413,7 @@ const ContactForDealPage = () => {
       }
 
       try {
-        const response = await axios.get('http://localhost:8080/api/auth/user/details', {
+        const response = await axios.get('https://car-rental-r8on.onrender.com/api/auth/user/details', {
           headers: {
             Authorization: `Bearer ${token}`, // Pass token as 'Bearer <token>'
           },
@@ -482,7 +482,7 @@ const ContactForDealPage = () => {
         }
 
         const token = localStorage.getItem('token');
-        const response = await axios.get('http://localhost:8080/api/auth/user/details', {
+        const response = await axios.get('https://car-rental-r8on.onrender.com/api/auth/user/details', {
           headers: {
             Authorization: `Bearer ${token}`, // Pass token as 'Bearer <token>'
           },
@@ -494,7 +494,7 @@ const ContactForDealPage = () => {
         }
 
         // Send POST request with all parameters
-        const postResponse = await fetch('http://localhost:8080/api/query/post-query', {
+        const postResponse = await fetch('https://car-rental-r8on.onrender.com/api/query/post-query', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({

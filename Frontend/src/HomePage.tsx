@@ -161,7 +161,7 @@
 //     const fetchCarData = async () => {
 //       setLoading(true);
 //       try {
-//         const response = await axios.get("http://localhost:8080/api/car/get-all-cars");
+//         const response = await axios.get("https://car-rental-r8on.onrender.com/api/car/get-all-cars");
 //         const data = response.data.cars; // Cars are inside the "cars" array
 
 //         // Organize the car data into categories
@@ -337,7 +337,7 @@ const HomePage = () => {
     const fetchCarData = async () => {
       setLoading(true);
       try {
-        const response = await axios.get("http://localhost:8080/api/car/get-all-cars");
+        const response = await axios.get("https://car-rental-r8on.onrender.com/api/car/get-all-cars");
         const data = response.data.cars;
 
         // Organize the car data into categories
@@ -373,7 +373,7 @@ const HomePage = () => {
 
   const fetchCarImage = async (imageId) => {
     try {
-      const response = await axios.get(`http://localhost:8080/api/image/${imageId}`, { responseType: 'blob' });
+      const response = await axios.get(`https://car-rental-r8on.onrender.com/api/image/${imageId}`, { responseType: 'blob' });
       return URL.createObjectURL(response.data); // Convert blob to URL
     } catch (error) {
       console.error("Error fetching car image:", error);

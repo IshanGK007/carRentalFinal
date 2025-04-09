@@ -30,7 +30,7 @@
 //           return;
 //         }
 
-//         const res = await axios.get('http://localhost:8080/api/query/fetch-query', {
+//         const res = await axios.get('https://car-rental-r8on.onrender.com/api/query/fetch-query', {
 //           headers: {
 //             Authorization: `Bearer ${token}`,
 //           },
@@ -62,7 +62,7 @@
 //       };
 
 //       const token = localStorage.getItem('token');
-//       await axios.put(`http://localhost:8080/api/query/update-query-status-by-id/${queryId}`, updatedQuery, {
+//       await axios.put(`https://car-rental-r8on.onrender.com/api/query/update-query-status-by-id/${queryId}`, updatedQuery, {
 //         headers: {
 //           Authorization: `Bearer ${token}`,
 //         },
@@ -154,7 +154,7 @@ const AdminDashboard = () => {
           return;
         }
 
-        const res = await axios.get('http://localhost:8080/api/query/fetch-query', {
+        const res = await axios.get('https://car-rental-r8on.onrender.com/api/query/fetch-query', {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -187,7 +187,7 @@ const AdminDashboard = () => {
   try {
     const token = localStorage.getItem('token');
     const res = await axios.put(
-      `http://localhost:8080/api/query/update-query-status-by-id/${queryId}`,
+      `https://car-rental-r8on.onrender.com/api/query/update-query-status-by-id/${queryId}`,
       updatedQuery,
       {
         headers: {

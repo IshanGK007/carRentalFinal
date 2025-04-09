@@ -141,7 +141,7 @@ const Login = () => {
 
     try {
       // Send POST request to backend login API
-      const response = await axios.post('http://localhost:8080/api/auth/login', { email, password });
+      const response = await axios.post('https://car-rental-r8on.onrender.com/api/auth/login', { email, password });
 
       // On success, store the token and user info (you can store token in localStorage or cookies)
       const { token, user } = response.data;

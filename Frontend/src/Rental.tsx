@@ -23,10 +23,10 @@
 //   setLoading(true);
 //   try {
 //     const [suvResponse, sedanResponse, hatchbackResponse, luxuryResponse] = await Promise.all([
-//       axios.get("http://localhost:8080/api/car/get-car-by-type/suv"),
-//       axios.get("http://localhost:8080/api/car/get-car-by-type/sedan"),
-//       axios.get("http://localhost:8080/api/car/get-car-by-type/hatchbacks"),
-//       axios.get("http://localhost:8080/api/car/get-car-by-type/luxury"),
+//       axios.get("https://car-rental-r8on.onrender.com/api/car/get-car-by-type/suv"),
+//       axios.get("https://car-rental-r8on.onrender.com/api/car/get-car-by-type/sedan"),
+//       axios.get("https://car-rental-r8on.onrender.com/api/car/get-car-by-type/hatchbacks"),
+//       axios.get("https://car-rental-r8on.onrender.com/api/car/get-car-by-type/luxury"),
 //     ]);
 
 //     // Check the response data format to make sure it contains cars
@@ -211,7 +211,7 @@
 //               >
 //                 {/* Display the car image from the API endpoint */}
 //                 <img
-//                   src={`http://localhost:8080/api/image/${car.imageId}`} // Assuming car.imageId is the correct field
+//                   src={`https://car-rental-r8on.onrender.com/api/image/${car.imageId}`} // Assuming car.imageId is the correct field
 //                   alt={car.make + " " + car.model}
 //                   className="w-full h-48 object-cover"
 //                 />
@@ -278,10 +278,10 @@ const fetchCarData = async () => {
   setLoading(true);
   try {
     const [suvResponse, sedanResponse, hatchbackResponse, luxuryResponse] = await Promise.all([
-      axios.get("http://localhost:8080/api/car/get-car-by-type/suv"),
-      axios.get("http://localhost:8080/api/car/get-car-by-type/sedan"),
-      axios.get("http://localhost:8080/api/car/get-car-by-type/hatchbacks"),
-      axios.get("http://localhost:8080/api/car/get-car-by-type/luxury"),
+      axios.get("https://car-rental-r8on.onrender.com/api/car/get-car-by-type/suv"),
+      axios.get("https://car-rental-r8on.onrender.com/api/car/get-car-by-type/sedan"),
+      axios.get("https://car-rental-r8on.onrender.com/api/car/get-car-by-type/hatchbacks"),
+      axios.get("https://car-rental-r8on.onrender.com/api/car/get-car-by-type/luxury"),
     ]);
 
     // Check the response data format to make sure it contains cars
@@ -468,7 +468,7 @@ const fetchCarData = async () => {
               >
                 {/* Display the car image from the API endpoint */}
                 <img
-                  src={`http://localhost:8080/api/image/${car.imageId}`} // Assuming car.imageId is the correct field
+                  src={`https://car-rental-r8on.onrender.com/api/image/${car.imageId}`} // Assuming car.imageId is the correct field
                   alt={car.make + " " + car.model}
                   className="w-full h-48 object-cover"
                 />

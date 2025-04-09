@@ -227,7 +227,7 @@
 
 //     setLoading(true);
 //     try {
-//       const response = await axios.post("http://localhost:8080/api/auth/verify-otp-sent", {
+//       const response = await axios.post("https://car-rental-r8on.onrender.com/api/auth/verify-otp-sent", {
 //         email,
 //         otp: finalOtp,
 //       });
@@ -254,7 +254,7 @@
 
 //       try {
 //         // Request to resend the OTP
-//         const response = await axios.post("http://localhost:8080/api/auth/verify-otp", { email });
+//         const response = await axios.post("https://car-rental-r8on.onrender.com/api/auth/verify-otp", { email });
 
 //         if (response.data.success) {
 //           toast.success("OTP resent successfully!");
@@ -413,7 +413,7 @@ const VerifyOtp = () => {
 
     setLoading(true);
     try {
-      const response = await axios.post("http://localhost:8080/api/auth/verify-otp-sent", {
+      const response = await axios.post("https://car-rental-r8on.onrender.com/api/auth/verify-otp-sent", {
         email,
         otp: finalOtp,
       });
@@ -439,7 +439,7 @@ const VerifyOtp = () => {
       setOtp(["", "", "", "", "", ""]);
 
       try {
-        const response = await axios.post("http://localhost:8080/api/auth/verify-otp", { email });
+        const response = await axios.post("https://car-rental-r8on.onrender.com/api/auth/verify-otp", { email });
 
         if (response.data.success) {
           toast.success("OTP resent successfully!");  // Success toast for resend

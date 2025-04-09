@@ -129,7 +129,7 @@ const ForgetPassword = () => {
     try {
       // Sending OTP to the backend API
       console.log("before");
-      const response = await axios.post(`http://localhost:8080/api/auth/send-otp`, { email });
+      const response = await axios.post(`https://car-rental-r8on.onrender.com/api/auth/send-otp`, { email });
       console.log(response.data);
 
       if (response.data.success) {

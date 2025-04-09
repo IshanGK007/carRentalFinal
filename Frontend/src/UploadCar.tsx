@@ -46,7 +46,7 @@ const UploadCar = () => {
       }
 
       try {
-        const response = await axios.get('http://localhost:8080/api/auth/user/details', {
+        const response = await axios.get('https://car-rental-r8on.onrender.com/api/auth/user/details', {
           headers: {
             Authorization: `Bearer ${token}`, // Pass token as 'Bearer <token>'
           },
@@ -114,7 +114,7 @@ const handleSubmit = async (e) => {
     const imageFormData = new FormData();
     imageFormData.append("image", image);
     const imageResponse = await axios.post(
-      "http://localhost:8080/api/image/upload",
+      "https://car-rental-r8on.onrender.com/api/image/upload",
       imageFormData
     );
 
@@ -126,7 +126,7 @@ const handleSubmit = async (e) => {
       finalFormData.soldBy = soldBy; // Assuming soldBy comes from your session or auth logic
 
       // Step 2: Register the car with the image ID and soldBy
-      await axios.post("http://localhost:8080/api/car/register", finalFormData);
+      await axios.post("https://car-rental-r8on.onrender.com/api/car/register", finalFormData);
 
       alert("Car listed successfully!");
       setUploading(false);

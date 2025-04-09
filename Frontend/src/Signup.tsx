@@ -204,7 +204,7 @@ const Signup = () => {
     }
 
     try {
-      const response = await fetch("http://localhost:8080/api/auth/register", {  // Update to your backend endpoint
+      const response = await fetch("https://car-rental-r8on.onrender.com/api/auth/register", {  // Update to your backend endpoint
         method: "POST",
         headers: {
           "Content-Type": "application/json",

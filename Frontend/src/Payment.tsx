@@ -16,7 +16,7 @@ const PaymentPage = () => {
     // Fetch car details from the API
     const fetchCarDetails = async () => {
       try {
-        const response = await axios.get(`http://localhost:8080/api/car/get-car-by-id/${carId}`);
+        const response = await axios.get(`https://car-rental-r8on.onrender.com/api/car/get-car-by-id/${carId}`);
         setCarDetails(response.data.car);
         setAmount(response.data.car.price);
       } catch (error) {
@@ -34,7 +34,7 @@ const PaymentPage = () => {
       }
 
       try {
-        const response = await axios.get('http://localhost:8080/api/auth/user/details', {
+        const response = await axios.get('https://car-rental-r8on.onrender.com/api/auth/user/details', {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -73,7 +73,7 @@ const PaymentPage = () => {
       console.log("Order data:", orderData);
 
 
-      const response = axios.post('http://localhost:8080/api/payment/create-order', orderData, {
+      const response = axios.post('https://car-rental-r8on.onrender.com/api/payment/create-order', orderData, {
       headers: {
         'Content-Type': 'application/json',
       },
@@ -101,7 +101,7 @@ const PaymentPage = () => {
               signature: response.razorpay_signature,
             };
 
-            axios.post('http://localhost:8080/api/payment/verifyPayment', paymentDetails)
+            axios.post('https://car-rental-r8on.onrender.com/api/payment/verifyPayment', paymentDetails)
               .then((verificationResponse) => {
                 if (verificationResponse.data.success) {
                   console.log('Payment verified successfully');
@@ -232,7 +232,7 @@ export default PaymentPage;
 //     // Fetch car details from the API
 //     const fetchCarDetails = async () => {
 //       try {
-//         const response = await axios.get(`http://localhost:8080/api/car/get-car-by-id/${carId}`);
+//         const response = await axios.get(`https://car-rental-r8on.onrender.com/api/car/get-car-by-id/${carId}`);
 //         console.log(response.data); // Logs the full response
 //         setCarDetails(response.data.car); // Corrected to access 'car' from response.data
 //         setAmount(response.data.car.price); // Updated to access price from the correct location
@@ -251,7 +251,7 @@ export default PaymentPage;
 //       }
 
 //       try {
-//         const response = await axios.get('http://localhost:8080/api/auth/user/details', {
+//         const response = await axios.get('https://car-rental-r8on.onrender.com/api/auth/user/details', {
 //           headers: {
 //             Authorization: `Bearer ${token}`,
 //           },
@@ -293,7 +293,7 @@ export default PaymentPage;
 //       };
 
 //       // Make API call to create the payment order
-//       const response = await axios.post('http://localhost:8080/api/payment/create-order', orderData);
+//       const response = await axios.post('https://car-rental-r8on.onrender.com/api/payment/create-order', orderData);
 
 //       if (response.data.success) {
 //         alert('order created successfully!');
@@ -307,7 +307,7 @@ export default PaymentPage;
 //               signature: response.data.signature,
 //             };
 
-//             const verificationResponse = await axios.post('http://localhost:8080/api/payment/verifyPayment', paymentDetails);
+//             const verificationResponse = await axios.post('https://car-rental-r8on.onrender.com/api/payment/verifyPayment', paymentDetails);
 //             if (verificationResponse.data.success) {
 //               console.log('Payment verified successfully');
 //               setPaymentSuccess(true);
@@ -441,7 +441,7 @@ export default PaymentPage;
 //     // Fetch car details from the API
 //     const fetchCarDetails = async () => {
 //       try {
-//         const response = await axios.get(`http://localhost:8080/api/car/get-car-by-id/${carId}`);
+//         const response = await axios.get(`https://car-rental-r8on.onrender.com/api/car/get-car-by-id/${carId}`);
 
 
 //         setCarDetails(response.data.car); // Corrected to access 'car' from response.data
@@ -461,7 +461,7 @@ export default PaymentPage;
 //       }
 
 //       try {
-//         const response = await axios.get('http://localhost:8080/api/auth/user/details', {
+//         const response = await axios.get('https://car-rental-r8on.onrender.com/api/auth/user/details', {
 //           headers: {
 //             Authorization: `Bearer ${token}`,
 //           },
@@ -501,7 +501,7 @@ export default PaymentPage;
 //     };
 
 //     // Make API call to create the payment order
-//     const response = await axios.post('http://localhost:8080/api/payment/create-order', orderData);
+//     const response = await axios.post('https://car-rental-r8on.onrender.com/api/payment/create-order', orderData);
 
 //     // If payment order creation is successful
 //     if (response.data.success) {
@@ -522,7 +522,7 @@ export default PaymentPage;
 //               signature: paymentResponse.razorpay_signature,
 //             };
 
-//             const verificationResponse = await axios.post('http://localhost:8080/api/payment/verifyPayment', paymentDetails);
+//             const verificationResponse = await axios.post('https://car-rental-r8on.onrender.com/api/payment/verifyPayment', paymentDetails);
 //             console.log("Payment Verification:", verificationResponse.data);
 
 //             if (verificationResponse.data.success) {
