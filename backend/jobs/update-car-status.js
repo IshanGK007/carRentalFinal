@@ -1,5 +1,5 @@
 const cron = require('node-cron');
-const Car = require('../models/Car');
+const Car = require('../models/car');
 
 // Cron job to update car status after rental period ends
 const updateCarStatus = () => {
